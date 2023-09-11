@@ -56,6 +56,35 @@
             border-radius: 5px;
             margin: 10px;
         }
+
+        /* Style pour le rectangle avec boutons */
+        .rectangle {
+            text-align: center;
+            width: 300px; /* Largeur du rectangle réduite */
+            background-color: #ccc; /* Couleur de fond gris */
+            border-radius: 20px; /* Bords arrondis */
+            margin: 20px auto; /* Centrer horizontalement et ajouter une marge en haut */
+            padding: 20px;
+        }
+
+        /* Style pour les boutons à l'intérieur du rectangle */
+        .rectangle .button {
+            display: block;
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: green; /* Couleur de fond verte */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s; /* Animation de transition */
+        }
+
+        .rectangle .button:hover {
+            background-color: rgb(111, 168, 111); /* Couleur de fond verte foncée au survol */
+        }
     </style>
 </head>
 <body>
@@ -73,10 +102,17 @@
         <p>N'hésitez pas à nous contacter si vous avez des questions.</p>
         
         <!-- Bouton d'interaction -->
-        <div class="button-container">
-            <a class="button" href="https://discord.gg/z3vZPXmQzm" target="_blank">Contactez-nous sur discord</a>
+        <div class="new-buttons">
+            <a class="new-button" href="https://discord.gg/z3vZPXmQzm" target="_blank">Contactez-nous sur discord</a>
         </div>
-
+        
+        <!-- Rectangle avec boutons -->
+        <div class="rectangle">
+            <a class="button" href="https://google.com" target="_blank">Home</a>
+            <a class="button" href="https://discord.gg/z3vZPXmQzm" target="_blank">Discord</a>
+            <a class="button" href="https://falco.my.canva.site/coli" target="_blank">Site</a>
+            <a class="button" href="https://tiktok.com/@coli.discord" target="_blank">TikTok</a>
+        </div>
     </div>
 </body>
 </html>
