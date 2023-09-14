@@ -27,5 +27,6 @@ document.getElementById("rpForm").addEventListener("submit", function (e) {
     })
     .catch(error => {
         console.error(error);
+        alert("Formulaire envoyé")
     });
 });
