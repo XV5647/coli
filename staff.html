@@ -13,7 +13,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgb(0, 0, 0); /* Fond noir*/
+            background-color: rgb(0, 0, 0); /* Fond noir */
             z-index: 9999;
         }
 
@@ -27,6 +27,16 @@
             padding: 20px;
             border-radius: 5px;
         }
+
+        /* Style pour le champ de mot de passe */
+        .password-input {
+            margin-top: 10px;
+        }
+
+        /* Style pour le bouton "Voir le mot de passe" */
+        .show-password-button {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -34,9 +44,15 @@
 <!-- Pop-up -->
 <div id="popup" class="popup">
     <div class="popup-content">
-        <h2>Entrez le code à 6 chiffres :</h2>
-        <input type="text" id="codeInput" maxlength="6">
-        <button onclick="checkCode()">ENTRER</button>
+        <h2>Entrez votre identifiant et votre mot de passe :</h2>
+        <div>
+            <input type="text" id="codeInput" maxlength="6" placeholder="Identifiant">
+        </div>
+        <div class="password-input">
+            <input type="password" id="passwordInput" placeholder="Mot de passe">
+        </div>
+        <button class="show-password-button" onclick="togglePassword()">Voir le mot de passe</button>
+        <button onclick="checkCodeAndPassword()">ENTRER</button>
     </div>
 </div>
 
@@ -46,16 +62,25 @@
         document.getElementById('popup').style.display = 'block';
     }
 
-    // Fonction pour vérifier le code
-    function checkCode() {
+    // Fonction pour vérifier le code et le mot de passe
+    function checkCodeAndPassword() {
         const codeInput = document.getElementById('codeInput').value;
-        // Remplacez "071090" par le code correct à 6 chiffres
-        if (codeInput === "071090") {
+        const passwordInput = document.getElementById('passwordInput').value;
+        if (codeInput === "xv5647" && passwordInput === "Test01/*") {
             document.getElementById('popup').style.display = 'none';
         } else {
-            alert('Code incorrect. Veuillez réessayer.');
+            alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
         }
-  
+    }
+
+    // Fonction pour afficher ou masquer le mot de passe
+    function togglePassword() {
+        const passwordInput = document.getElementById('passwordInput');
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text"; // Affiche le mot de passe
+        } else {
+            passwordInput.type = "password"; // Masque le mot de passe
+        }
     }
 </script>
 
@@ -67,7 +92,7 @@
 </head>
 <body>
     <header>
-        <h1>Partie Staff en cours de developpement</h1>
+        <h1>Partie Staff en cours de développement</h1>
     </header>
     <footer>
         <p>&copy; 2023 COLI</p>
