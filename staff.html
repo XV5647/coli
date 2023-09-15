@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de connexion</title>
+    <style>
+        /* Styles pour la pop-up */
+        .popup {
+            display:inline; /* Initialement masquée */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0); /* Fond noir*/
+            z-index: 9999;
+        }
+
+        .popup-content {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Pop-up -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>Entrez le code à 6 chiffres :</h2>
+        <input type="text" id="codeInput" maxlength="6">
+        <button onclick="checkCode()">ENTRER</button>
+    </div>
+</div>
+
+<script>
+    // Fonction pour afficher la pop-up
+    function showPopup() {
+        document.getElementById('popup').style.display = 'block';
+    }
+
+    // Fonction pour vérifier le code
+    function checkCode() {
+        const codeInput = document.getElementById('codeInput').value;
+        // Remplacez "071090" par le code correct à 6 chiffres
+        if (codeInput === "071090") {
+            document.getElementById('popup').style.display = 'none';
+        } else {
+            alert('Code incorrect. Veuillez réessayer.');
+        }
+  
+    }
+</script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAFF COLI</title>
+</head>
+<body>
+    <header>
+        <h1>Partie Staff en cours de developpement</h1>
+    </header>
+    <footer>
+        <p>&copy; 2023 COLI</p>
+    </footer>
+</body>
+</html>
