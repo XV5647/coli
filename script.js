@@ -1,4 +1,5 @@
 document.getElementById("rpForm").addEventListener("submit", function (e) {
+                alert('Formulaire envoyé');
     e.preventDefault();
     const formData = new FormData(e.target);
 
