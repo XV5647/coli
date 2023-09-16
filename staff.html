@@ -66,24 +66,17 @@
     }
 
     function checkCodeAndPassword() {
-        const codeInput = document.getElementById('codeInput').value;
-        const passwordInput = document.getElementById('passwordInput').value;
-        if (codeInput === "fonda" && passwordInput === "HTMJK") {
-            document.getElementById('popup').style.display = 'none';
-        } else {
-            alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
-        }
+    const codeInput = document.getElementById('codeInput').value;
+    const passwordInput = document.getElementById('passwordInput').value;
+    
+    if (codeInput === "fonda" && passwordInput === "HTMJK") {
+        document.getElementById('popup').style.display = 'none';
+    } else if (codeInput === "staff" && passwordInput === "COLI/*/") {
+        document.getElementById('popup').style.display = 'none';
+    } else {
+        alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
     }
-
-        function checkCodeAndPassword() {
-        const codeInput = document.getElementById('codeInput').value;
-        const passwordInput = document.getElementById('passwordInput').value;
-        if (codeInput === "staff" && passwordInput === "COLI/*/") {
-            document.getElementById('popup').style.display = 'none';
-        } else {
-            alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
-        }
-    }
+}
 
     // Fonction pour afficher ou masquer le mot de passe
     function togglePassword() {
@@ -99,16 +92,54 @@
     generatePasswordField();
 </script>
 
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAFF COLI</title>
+    <style>
+        a {
+            color: #000000; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-bottom: 5px;
+        }
+
+        p {
+            color: #000000; 
+            text-decoration: none; 
+            font-weight: bold; 
+            margin-bottom: 5px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #000000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Partie Staff en cours de développement</h1>
+        <h1>Voici les dernières infos :</h1>
     </header>
+    <a>Réunion prévue : Aucune</a>
+    <p>État des services : 🟢</p>
+    <a>Bot : 🟢</a>
+    <p>Rôles : 🟢</p>
+    <a>Salons : 🟢</a>
+    <p>Serveur : 🟢</p>
     <footer>
         <p>&copy; 2023 COLI</p>
     </footer>
