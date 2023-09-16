@@ -1,6 +1,5 @@
 document.getElementById("rpForm").addEventListener("submit", function (e) {
-                alert('Formulaire envoyé');
-    e.preventDefault();
+  e.preventDefault();
     const formData = new FormData(e.target);
 
     const pseudo = formData.get("pseudo");
