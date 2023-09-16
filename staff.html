@@ -28,11 +28,6 @@
             border-radius: 5px;
         }
 
-        /* Style pour le champ de mot de passe */
-        .password-input {
-            margin-top: 10px;
-        }
-
         /* Style pour le bouton "Voir le mot de passe" */
         .show-password-button {
             margin-top: 10px;
@@ -48,8 +43,8 @@
         <div>
             <input type="text" id="codeInput" maxlength="6" placeholder="Identifiant">
         </div>
-        <div class="password-input">
-            <input type="password" id="passwordInput" placeholder="Mot de passe">
+        <div class="password-input" id="passwordField">
+            <!-- Le champ de mot de passe sera généré ici -->
         </div>
         <button class="show-password-button" onclick="togglePassword()">Voir le mot de passe</button>
         <button onclick="checkCodeAndPassword()">ENTRER</button>
@@ -57,16 +52,33 @@
 </div>
 
 <script>
-    // Fonction pour afficher la pop-up
     function showPopup() {
         document.getElementById('popup').style.display = 'block';
     }
 
-    // Fonction pour vérifier le code et le mot de passe
+    function generatePasswordField() {
+        const passwordField = document.getElementById('passwordField');
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.id = 'passwordInput';
+        passwordInput.placeholder = 'Mot de passe';
+        passwordField.appendChild(passwordInput);
+    }
+
     function checkCodeAndPassword() {
         const codeInput = document.getElementById('codeInput').value;
         const passwordInput = document.getElementById('passwordInput').value;
-        if (codeInput === "gay" && passwordInput === "/*") {
+        if (codeInput === "xv5647" && passwordInput === "X.COLI") {
+            document.getElementById('popup').style.display = 'none';
+        } else {
+            alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
+        }
+    }
+
+        function checkCodeAndPassword() {
+        const codeInput = document.getElementById('codeInput').value;
+        const passwordInput = document.getElementById('passwordInput').value;
+        if (codeInput === "shasha" && passwordInput === "S.COLI") {
             document.getElementById('popup').style.display = 'none';
         } else {
             alert('Identifiant ou mot de passe incorrect. Veuillez réessayer.');
@@ -82,6 +94,9 @@
             passwordInput.type = "password"; // Masque le mot de passe
         }
     }
+
+    // Génère le champ de mot de passe lors du chargement de la page
+    generatePasswordField();
 </script>
 
 <html lang="en">
