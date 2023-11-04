@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Ticket</title>
+</head>
+<body>
+    <h1>Formulaire de Ticket</h1>
+    <form id="ticketForm">
+        <label for="pseudoDiscord">Pseudo Discord:</label>
+        <input type="text" id="pseudoDiscord" required><br><br>
+
+        <label for="idDiscord">ID Discord:</label>
+        <input type="text" id="idDiscord" required><br><br>
+
+        <label for="raisonTicket">Raison du ticket:</label>
+        <select id="raisonTicket" required>
+            <option value="partenariat">Partenariat</option>
+            <option value="aide">Aide</option>
+            <option value="question">Question</option>
+        </select><br><br>
+
+        <label for="assistanceType">Vous souhaitez une assistance par:</label>
+        <select id="assistanceType" required>
+            <option value="mail">Mail</option>
+            <option value="discord">Discord</option>
+        </select><br><br>
+
+        <div id="emailField" style="display:none;">
+            <label for="email">Adresse E-mail:</label>
+            <input type="email" id="email"><br><br>
+        </div>
+
+        <button type="button" onclick="submitTicket()">Envoyer</button>
+    </form>
+
+    <script>
+        function submitTicket() {
+            var pseudoDiscord = document.getElementById("pseudoDiscord").value;
+            var idDiscord = document.getElementById("idDiscord").value;
+            var raisonTicket = document.getElementById("raisonTicket").value;
+            var assistanceType = document.getElementById("assistanceType").value;
+            var email = document.getElementById("email").value;
+
+            var titre = 'L\'utilisateur "' + pseudoDiscord + '" a ouvert un ticket pour "' + raisonTicket + '"';
+            var contenu = 'ID Discord: ' + idDiscord + '\nRaison du ticket: ' + raisonTicket;
+            var contenu2 = 'Mail : ' + (assistanceType === 'mail' ? email : '');
+
+            var couleur = 0x9933ff; // Couleur violet en hexadécimal
+
+            var messageEmbed = {
+                title: titre,
+                description: contenu,
+                color: couleur,
+                fields: [
+                    {
+                        name: 'Contenu 2',
+                        value: contenu2
+                    }
+                ]
+            };
+
+            if (assistanceType === 'mail') {
+                // Envoyez un message par mail
+                // Vous devez implémenter cette partie en utilisant un service d'envoi de mail
+            } else if (assistanceType === 'discord') {
+                // Envoyez le message embed à un webhook Discord
+                var webhookURL = 'VOTRE_WEBHOOK_URL'; // Remplacez ceci par l'URL de votre webhook Discord
+                fetch(webhookURL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        embeds: [messageEmbed]
+                    })
+                }).then(response => {
+                    if (response.status === 204) {
+                        alert('Ticket envoyé avec succès.');
+                    } else {
+                        alert('Erreur lors de l\'envoi du ticket.');
+                    }
+                });
+            }
+        }
+
+        // Affiche ou masque le champ d'adresse e-mail en fonction de l'option choisie
+        document.getElementById("assistanceType").addEventListener("change", function() {
+            var emailField = document.getElementById("emailField");
+            if (this.value === "mail") {
+                emailField.style.display = "block";
+            } else {
+                emailField.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
