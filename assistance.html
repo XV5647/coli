@@ -36,6 +36,15 @@
     </form>
 
     <script>
+        document.getElementById("assistanceType").addEventListener("change", function() {
+            var emailField = document.getElementById("emailField");
+            if (this.value === "mail") {
+                emailField.style.display = "block";
+            } else {
+                emailField.style.display = "none";
+            }
+        });
+
         function submitTicket() {
             var pseudoDiscord = document.getElementById("pseudoDiscord").value;
             var idDiscord = document.getElementById("idDiscord").value;
@@ -65,8 +74,8 @@
                 // Envoyez un message par mail
                 // Vous devez implémenter cette partie en utilisant un service d'envoi de mail
             } else if (assistanceType === 'discord') {
-                // Envoyez le message embed à un webhook Discord
-                var webhookURL = 'https://discord.com/api/webhooks/1170411789721288754/h-zioaGgD95x9eoCEyvGsvaQHS3EF5nz7M17DKYYdj4cI9BFIfV1oJQ3K1VgafXMlRiL'; // Remplacez ceci par l'URL de votre webhook Discord
+                // Remplacez ceci par l'URL de votre webhook Discord
+                var webhookURL = 'https://discord.com/api/webhooks/1234567890123456789/abcdefg';
                 fetch(webhookURL, {
                     method: 'POST',
                     headers: {
@@ -84,16 +93,6 @@
                 });
             }
         }
-
-        // Affiche ou masque le champ d'adresse e-mail en fonction de l'option choisie
-        document.getElementById("assistanceType").addEventListener("change", function() {
-            var emailField = document.getElementById("emailField");
-            if (this.value === "mail") {
-                emailField.style.display = "block";
-            } else {
-                emailField.style.display = "none";
-            }
-        });
     </script>
 </body>
 </html>
